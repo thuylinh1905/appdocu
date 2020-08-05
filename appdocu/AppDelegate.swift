@@ -7,31 +7,103 @@
 //
 
 import UIKit
+import  Firebase
+import  FirebaseAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
+    var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        FirebaseApp.configure()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        if Auth.auth().currentUser != nil {
+            self.gototabbar()
+        } else {
+            self.gotoOnboarding()
+        }
+        window?.makeKeyAndVisible()
         return true
     }
 
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    func gotoHome() {
+        UIView.transition(with: self.window!, duration: 0.3, options: UIView.AnimationOptions.transitionCrossDissolve, animations: {
+            let viewController = ProfileViewController()
+            let navigationController = UINavigationController(rootViewController: viewController)
+            self.window?.rootViewController = navigationController
+        }, completion: nil)
+        
     }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    
+    func gotoOnboarding() {
+        UIView.transition(with: self.window!, duration: 0.3, options: UIView.AnimationOptions.transitionCrossDissolve, animations: {
+            let v1 = Home1ViewController()
+            self.window?.rootViewController = v1
+        }, completion: nil)
+        
     }
-
+    func gotoOnboarding1() {
+         UIView.transition(with: self.window!, duration: 0.3, options: UIView.AnimationOptions.transitionCrossDissolve, animations: {
+             let v1 = HomeViewController()
+             self.window?.rootViewController = v1
+         }, completion: nil)
+     }
+    
+    func gotoSignup() {
+        let SignupController = SignupViewController()
+        let navigationController = UINavigationController(rootViewController: SignupController)
+        self.window?.rootViewController = navigationController
+    }
+    
+    func gotoSignin() {
+           let SigninViewController = LoginViewController()
+           let navigationController = UINavigationController(rootViewController: SigninViewController)
+           self.window?.rootViewController = navigationController
+    }
+    
+    func gotoupload() {
+        UIView.transition(with: self.window!, duration: 0.5, options: UIView.AnimationOptions.transitionCrossDissolve,animations: {
+            let postViewController = PostViewController()
+            let navigationController = UINavigationController(rootViewController: postViewController)
+            self.window?.rootViewController = navigationController
+        } ,completion: nil)
+    }
+    
+    func gototabbar() {
+        let tabBarController = UITabBarController()
+        let homeviewcontroller = HomeViewController (
+            nibName: "HomeViewController",
+            bundle: nil)
+        let tabViewController2 = ProfileViewController(
+            nibName:"ProfileViewController",
+            bundle: nil)
+        let tabViewController3 = SignupViewController()
+        
+        let navi1 = UINavigationController(rootViewController: homeviewcontroller)
+        let navi2 = UINavigationController(rootViewController: tabViewController2)
+        let navi3 = UINavigationController(rootViewController: tabViewController3)
+        let navi4 = UINavigationController(rootViewController: tabViewController3)
+        
+        navi1.navigationBar.isTranslucent = false
+        navi2.navigationBar.isTranslucent = false
+        navi3.navigationBar.isTranslucent = false
+        navi4.navigationBar.isTranslucent = false
+        
+        
+        
+        let controllers = [navi1,navi2,navi3, navi4]
+        tabBarController.viewControllers = controllers
+        
+        navi1.tabBarItem = UITabBarItem(
+            title: "",
+            image: UIImage(named: "home1"),
+            tag: 1)
+        navi2.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "user1"), tag: 2)
+        navi3.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "chat1"), tag: 3)
+        navi4.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "nofi1"), tag: 4)
+        
+        self.window?.rootViewController = tabBarController
+    }
 
 }
 

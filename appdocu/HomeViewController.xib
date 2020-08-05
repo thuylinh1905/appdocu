@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="appdocu" customModuleProvider="target">
+            <connections>
+                <outlet property="imagebanner" destination="pt6-Jk-9EI" id="NAs-Of-Mw1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gqq-rO-f0x">
+                    <rect key="frame" x="0.0" y="56" width="414" height="250"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="c4g-Xq-fou"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="jYv-6F-amt"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4QH-XY-iLF">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pt6-Jk-9EI">
+                    <rect key="frame" x="0.0" y="44" width="414" height="250"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="6pe-AH-LtL"/>
+                        <constraint firstAttribute="height" constant="250" id="rky-7N-GWw"/>
+                    </constraints>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ESQ-Qx-Ifk">
+                    <rect key="frame" x="0.0" y="316" width="414" height="546"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ESQ-Qx-Ifk" secondAttribute="bottom" id="3aI-CA-n5a"/>
+                <constraint firstItem="pt6-Jk-9EI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="6by-Re-fEu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pt6-Jk-9EI" secondAttribute="trailing" id="Ccr-Pw-MBH"/>
+                <constraint firstItem="ESQ-Qx-Ifk" firstAttribute="top" secondItem="gqq-rO-f0x" secondAttribute="bottom" constant="10" id="NJZ-KQ-g8n"/>
+                <constraint firstItem="gqq-rO-f0x" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="PIk-wh-l6f"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ESQ-Qx-Ifk" secondAttribute="trailing" id="brv-YY-Oxh"/>
+                <constraint firstItem="gqq-rO-f0x" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="c4g-H3-M2j"/>
+                <constraint firstItem="ESQ-Qx-Ifk" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="cFB-re-Sr9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gqq-rO-f0x" secondAttribute="trailing" id="fj4-eU-tpe"/>
+                <constraint firstItem="pt6-Jk-9EI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="mZu-QC-eIx"/>
+                <constraint firstItem="ESQ-Qx-Ifk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="u0o-Ig-S3L"/>
+                <constraint firstItem="gqq-rO-f0x" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="vQu-vE-Tbj"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="131.8840579710145" y="98.4375"/>
+        </view>
+    </objects>
+</document>
